@@ -138,3 +138,32 @@ func Test_Identity(t *testing.T) {
 		})
 	}
 }
+
+func Test_Always(t *testing.T) {
+	// Arrange
+	cases := []struct {
+		desc   string
+		value  any
+		expect any
+	}{
+		{
+			desc:   "string",
+			value:  "test",
+			expect: "test",
+		},
+		{
+			desc:   "int",
+			value:  3,
+			expect: 3,
+		},
+	}
+	for _, tt := range cases {
+		t.Run(tt.desc, func(t *testing.T) {
+			// Act
+			result := Always(tt.value)
+
+			// Assert
+			assert.Equal(t, tt.expect, result())
+		})
+	}
+}
