@@ -167,3 +167,17 @@ func Test_Always(t *testing.T) {
 		})
 	}
 }
+
+func Test_Curry(t *testing.T) {
+	// Arrange
+	fn := func(a int, b int) int {
+		return a + b
+	}
+
+	//Act
+	fnCurry := Curry2(fn)
+	result := fnCurry(1)(2)
+
+	//Assert
+	assert.Equal(t, 3, result)
+}
