@@ -23,13 +23,13 @@ func Benchmark_Curry(b *testing.B) {
 }
 
 func Benchmark_Map(b *testing.B) {
+	// Arrange
 	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	mapper := func(num int) int {
 		return num * 2
 	}
 
 	// Act
-
 	b.Run("normal", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			result := make([]int, len(arr))
@@ -39,6 +39,7 @@ func Benchmark_Map(b *testing.B) {
 		}
 	})
 
+	// Act
 	b.Run("mapped", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			Map(arr, mapper)
