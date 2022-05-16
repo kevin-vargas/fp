@@ -1,6 +1,7 @@
 package fp
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -180,4 +181,43 @@ func Test_Curry(t *testing.T) {
 
 	//Assert
 	assert.Equal(t, 3, result)
+}
+
+func Test_Chunk(t *testing.T) {
+	// Arrange
+	arr := []int{1, 2, 3, 4, 5}
+	cases := []struct {
+		size   int
+		expect [][]int
+	}{
+		{
+			1,
+			[][]int{{1}, {2}, {3}, {4}, {5}},
+		},
+		{
+			2,
+			[][]int{{1, 2}, {3, 4}, {5}},
+		},
+		{
+			3,
+			[][]int{{1, 2, 3}, {4, 5}},
+		},
+		{
+			4,
+			[][]int{{1, 2, 3, 4}, {5}},
+		},
+		{
+			5,
+			[][]int{{1, 2, 3, 4, 5}},
+		},
+	}
+	for _, tt := range cases {
+		t.Run(fmt.Sprintf("with size of %v", tt.size), func(t *testing.T) {
+			// Act
+			result := Chunk(tt.size, arr)
+
+			// Assert
+			assert.ElementsMatch(t, tt.expect, result)
+		})
+	}
 }
