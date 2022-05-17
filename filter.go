@@ -10,5 +10,5 @@ func Filter[T any](arr []T, predicate func(T) bool) []T {
 		return acum
 	}
 	initial := make([]T, 0)
-	return Reduce(arr, reducer, initial)
+	return ReduceS(arr, reducer, initial)
 }

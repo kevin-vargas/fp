@@ -19,5 +19,5 @@ func Chunk[T any](size int, arr []T) [][]T {
 		acum[indexX][indexY] = actual
 		return acum
 	}
-	return ReduceI(arr, reducer, result)
+	return Reduce(arr, reducer, result)
 }

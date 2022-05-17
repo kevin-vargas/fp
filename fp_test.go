@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_Reduce(t *testing.T) {
+func Test_ReduceS(t *testing.T) {
 	// Arrange
 	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	reducer := func(acum int, actual int) int {
@@ -15,7 +15,7 @@ func Test_Reduce(t *testing.T) {
 	}
 
 	// Act
-	result := Reduce(arr, reducer, 0)
+	result := ReduceS(arr, reducer, 0)
 
 	// Assert
 	expected := 45

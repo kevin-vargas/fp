@@ -13,5 +13,5 @@ func Reverse[T any](arr []T) []T {
 		index++
 		return acum
 	}
-	return Reduce(arr, reduce, result)
+	return ReduceS(arr, reduce, result)
 }
