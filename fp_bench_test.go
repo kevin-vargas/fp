@@ -82,3 +82,15 @@ func Benchmark_Reducer(b *testing.B) {
 	})
 
 }
+
+func Benchmark_Reverse(b *testing.B) {
+	// Arrange
+	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	// Act
+	b.Run("reverse", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			Reverse(arr)
+		}
+	})
+}
